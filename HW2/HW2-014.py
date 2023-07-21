@@ -3,9 +3,13 @@
 n = int(input('введите максимальное число - '))
 res = 0
 i = 0
-while res < n: 
-    res = 2**i
-    i+=1
-    if res > n: break
+flag = True
+
+while flag:
     print(res)
+    res = 2**i
+    i += 1
+    if res > n:
+        flag = False
+
     
