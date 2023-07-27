@@ -13,6 +13,8 @@ strWithSpaces = ' string with spaces '
 strWithSpaces.rstrip() #удаление пробелов в конце строки
 strWithSpaces.lstrip() #удаление пробелов в начале строки
 strWithSpaces.strip #удаление пробелов в начале и конце строки
+strWithSpaces.split() #разделение строки
+strWithSpaces.replace('.', ' ') #замена символов
 a = 3
 b = 11
 s = 2022
@@ -24,3 +26,4 @@ a = 1.43425
 b = 2.2983
 c = round(a * b, 5) # округление до 5 знаков после запятой
 print(c)
+
