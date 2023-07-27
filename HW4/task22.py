@@ -7,12 +7,12 @@ import random
 n = int(input("введите количество элементов первого набора - "))
 m = int(input("введите количество элементов второго набора - "))
 list1 = [random.randint(1, 20) for i in range(1, n+1)]
-print(list1)
 set1 = set(list1)
-print(set1)
 list2 = [random.randint(1, 20) for i in range(1, m+1)]
-print(list2)
 set2 = set(list2)
-print(set2)
 result_set = set2.intersection(set1)
 print(f"пересечение множеств - {result_set}")
+# print(list1)
+# print(set1)
+# print(list2)
+# print(set2)
