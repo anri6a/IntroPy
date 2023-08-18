@@ -11,10 +11,7 @@
 # def remote_contakt(file_name)
 # 5. найти контакт
 # def find_contact(file_name)
-# 6. открыть или сохранить
-# def open_or_save_contact(file_name)
-# 7. выход
-# def close_phone_book(file_name)
+
 
 # Андрей Ширяков;5568654;заместитель
 # Сергей Рабчун;7653819;связист
@@ -62,18 +59,24 @@ def add_new_contact(file_name):
 
 
 def edit_contact(file_name):
-    with open(file_name, 'r+', encoding='utf-8') as data_phones:
-        data_phones = data_phones.readlines()
-        line_to_edit = input('введите фамилию контакта, который нужно изменить: ')
-        # for line in data_phones:
-        #     if date_to_edit in line:
-        #        serch_line = line
-        search_line = list(filter(lambda x: line_to_edit in x, data_phones))
-        print(search_line)
-        date_to_edit = input('введите что поменять - ')
-        date_to_update = input('введите на что поменять - ')
-        print(f'заменить "{date_to_edit.upper()}" на "{date_to_update.upper()}"')
-        print(search_line)
+    date_work = open('phones.txt', 'r', encoding='utf-8')
+    date_phones = date_work.readlines()
+    date_work.close()
+
+    line_to_edit = input('введите фамилию контакта, который нужно изменить: ')
+    search_line = list(filter(lambda x: line_to_edit in x, date_phones))
+    print(search_line)
+    date_to_edit = input('введите что поменять - ')
+    date_to_update = input('введите на что поменять - ')
+    print(f'заменить "{date_to_edit.upper()}" на "{date_to_update.upper()}"')
+    for line in range(len(date_phones)):
+        if date_to_edit in date_phones[line]:
+            date_phones[line] = date_phones[line].replace(date_to_edit, date_to_update)
+            #print(date_phones[line])
+    date_work = open('phones.txt', 'w', encoding='utf-8')
+    date_work.writelines(date_phones)
+    date_work.close()
+
 
 def remove_contakt(file_name):
     with open(file_name, 'r', encoding='utf-8') as source, open('out.txt', 'w', encoding='utf-8') as dest:
